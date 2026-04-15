@@ -4,13 +4,13 @@ import { updateSession } from "@/lib/session-store";
 // POST /api/update - 세션 통계 업데이트
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const { sessionId, clickCount, volumePercent } = body;
+  const { sessionId, clickCount, volumePercent, angerScore } = body;
 
   if (!sessionId) {
     return NextResponse.json({ error: "sessionId required" }, { status: 400 });
   }
 
-  updateSession(sessionId, { clickCount, volumePercent });
+  updateSession(sessionId, { clickCount, volumePercent, angerScore });
 
   return NextResponse.json({ success: true });
 }

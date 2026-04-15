@@ -7,6 +7,7 @@ interface Session {
   createdAt: number;
   clickCount: number;
   volumePercent: number;
+  angerScore: number;
 }
 
 // globalThis에 세션맵 유지 (dev 핫리로드 대응)
@@ -28,6 +29,7 @@ export function createSession(): Session {
     createdAt: Date.now(),
     clickCount: 0,
     volumePercent: 10,
+    angerScore: 0,
   };
   sessions.set(id, session);
   return session;
@@ -48,12 +50,13 @@ export function freeSession(id: string): boolean {
 
 export function updateSession(
   id: string,
-  data: { clickCount?: number; volumePercent?: number }
+  data: { clickCount?: number; volumePercent?: number; angerScore?: number }
 ): void {
   const session = sessions.get(id);
   if (session) {
     if (data.clickCount !== undefined) session.clickCount = data.clickCount;
     if (data.volumePercent !== undefined) session.volumePercent = data.volumePercent;
+    if (data.angerScore !== undefined) session.angerScore = data.angerScore;
   }
 }
 

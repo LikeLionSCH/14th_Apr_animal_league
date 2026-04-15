@@ -19,5 +19,6 @@ export async function GET(request: NextRequest) {
     freed: session.freed,
     clickCount: session.clickCount,
     volumePercent: session.volumePercent,
+    angerScore: session.angerScore,
   });
 }
