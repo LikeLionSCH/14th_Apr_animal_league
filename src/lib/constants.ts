@@ -12,6 +12,9 @@ export const LYRIC_SPEED_MULTIPLIER = 0.75; // 가짜 버튼 클릭마다 interv
 export const INITIAL_FAKE_BUTTONS = 6;
 export const BUTTONS_PER_CLICK = 2; // 클릭당 추가되는 가짜 버튼 수
 export const MAX_FAKE_BUTTONS = 30;
+export const ANGER_SCORE_PER_CLICK = 1; // 가짜 버튼 클릭당 분노 점수 증가량
+export const ANGER_TAUNT_THRESHOLD_MIN = 10000; // 놀림 모달 임계치 최소값
+export const ANGER_TAUNT_THRESHOLD_MAX = 15000; // 놀림 모달 임계치 최대값
 
 // 안무 영상 설정
 export const INITIAL_DANCE_VIDEOS = 1;
