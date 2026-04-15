@@ -6,6 +6,7 @@ import LyricsRain from "./LyricsRain";
 import DanceVideos from "./DanceVideos";
 import ButtonField from "./ButtonField";
 import ShareModal from "./ShareModal";
+import DancingFigures from "./DancingFigures";
 import {
   INITIAL_DANCE_VIDEOS,
   VIDEOS_PER_CLICK,
@@ -110,6 +111,9 @@ export default function TerrorPlayer({
         </p>
       </div>
 
+      {/* 배경 댄서 실루엣 */}
+      <DancingFigures />
+
       {/* 가사 폭탄 */}
       <LyricsRain intensity={intensity} active={true} />
 
@@ -119,15 +123,14 @@ export default function TerrorPlayer({
       {/* 가짜 닫기 버튼들 */}
       <ButtonField active={true} onFakeClick={handleFakeClick} />
 
-      {/* 진짜 탈출 버튼 - 아래쪽에 고정 */}
-      <div className="absolute bottom-8 left-0 right-0 z-40 flex justify-center">
+      {/* 진짜 탈출 버튼 - 우하단 구석에 숨김 */}
+      <div className="absolute bottom-3 right-3 z-40">
         <button
           onClick={handleEscapeClick}
-          className="px-6 py-3 bg-green-500/80 text-white rounded-full font-bold text-sm
-                     animate-escape-pulse backdrop-blur-sm border border-green-400
-                     hover:bg-green-500 active:bg-green-600 transition-colors"
+          className="px-3 py-1.5 bg-black/30 text-white/40 rounded text-xs
+                     hover:text-white/70 hover:bg-black/50 transition-colors"
         >
-          🔗 친구한테 공유하면 멈춰줄게
+          공유하면 멈춰줄게
         </button>
       </div>
 
