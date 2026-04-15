@@ -124,6 +124,59 @@ body {
   animation: loading-bar 3s ease-out forwards;
 }
 
+/* 사람 실루엣 춤 애니메이션 */
+@keyframes dance-1 {
+  0%, 100% { transform: rotate(-8deg) translateY(0px); }
+  25%       { transform: rotate(8deg) translateY(-12px); }
+  50%       { transform: rotate(-5deg) translateY(-6px); }
+  75%       { transform: rotate(10deg) translateY(-14px); }
+}
+
+@keyframes dance-2 {
+  0%, 100% { transform: rotate(0deg) scaleX(1) translateY(0px); }
+  20%       { transform: rotate(-12deg) scaleX(1) translateY(-8px); }
+  40%       { transform: rotate(6deg) scaleX(-1) translateY(-14px); }
+  60%       { transform: rotate(-8deg) scaleX(-1) translateY(-5px); }
+  80%       { transform: rotate(14deg) scaleX(1) translateY(-10px); }
+}
+
+@keyframes dance-3 {
+  0%, 100% { transform: translateX(0) rotate(0deg) translateY(0px); }
+  15%       { transform: translateX(-8px) rotate(-15deg) translateY(-6px); }
+  35%       { transform: translateX(10px) rotate(10deg) translateY(-12px); }
+  55%       { transform: translateX(-5px) rotate(-8deg) translateY(-4px); }
+  75%       { transform: translateX(8px) rotate(18deg) translateY(-10px); }
+}
+
+@keyframes dance-arm-l {
+  0%, 100% { transform: rotate(20deg); }
+  50%       { transform: rotate(-60deg); }
+}
+
+@keyframes dance-arm-r {
+  0%, 100% { transform: rotate(-20deg); }
+  50%       { transform: rotate(60deg); }
+}
+
+@keyframes dance-leg-l {
+  0%, 100% { transform: rotate(10deg); }
+  50%       { transform: rotate(-20deg); }
+}
+
+@keyframes dance-leg-r {
+  0%, 100% { transform: rotate(-10deg); }
+  50%       { transform: rotate(20deg); }
+}
+
+.dance-body-1 { animation: dance-1 0.6s ease-in-out infinite; }
+.dance-body-2 { animation: dance-2 0.7s ease-in-out infinite; }
+.dance-body-3 { animation: dance-3 0.5s ease-in-out infinite; }
+
+.dance-arm-l  { transform-origin: 100% 10%; animation: dance-arm-l 0.6s ease-in-out infinite; }
+.dance-arm-r  { transform-origin: 0% 10%;  animation: dance-arm-r 0.6s ease-in-out infinite; }
+.dance-leg-l  { transform-origin: 100% 0%; animation: dance-leg-l 0.6s ease-in-out infinite; }
+.dance-leg-r  { transform-origin: 0% 0%;  animation: dance-leg-r 0.6s ease-in-out infinite; }
+
 /* 펄스 효과 (진짜 탈출 버튼) */
 @keyframes escape-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.6); }
