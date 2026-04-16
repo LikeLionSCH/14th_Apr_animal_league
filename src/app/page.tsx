@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { useAudioEngine } from "@/hooks/useAudioEngine";
+import DeptSelect from "@/components/DeptSelect";
 import SplashGate from "@/components/SplashGate";
 import TerrorPlayer from "@/components/TerrorPlayer";
 
@@ -11,7 +12,8 @@ function MainContent() {
   const searchParams = useSearchParams();
   const refId = searchParams.get("ref"); // 누군가에게서 공유받은 링크인 경우
 
-  const [phase, setPhase] = useState<"splash" | "terror">("splash");
+  const [phase, setPhase] = useState<"dept" | "splash" | "terror">("dept");
+  const [dept, setDept] = useState<string>("");
   const [sessionId, setSessionId] = useState<string>("");
   const [baseUrl, setBaseUrl] = useState<string>("");
   const audioEngine = useAudioEngine();
@@ -43,8 +45,19 @@ function MainContent() {
     setPhase("terror");
   }, [audioEngine]);
 
+  if (phase === "dept") {
+    return (
+      <DeptSelect
+        onSelect={(selectedDept) => {
+          setDept(selectedDept);
+          setPhase("splash");
+        }}
+      />
+    );
+  }
+
   if (phase === "splash") {
-    return <SplashGate onUnlock={handleUnlock} />;
+    return <SplashGate onUnlock={handleUnlock} dept={dept} />;
   }
 
   if (!sessionId) {
